@@ -1,0 +1,132 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+  <style>
+    body {
+      background-image: url('https://i1.wp.com/static.web-backgrounds.net/uploads/2012/08/City_Landscape_Background.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .message {
+      color: #0eff44;
+      font-weight: bold;
+      font-size: 20px;
+      font-style: italic;
+      text-align: center;
+      text-decoration: wavy;
+
+    }
+
+    .form {
+      border: 2px solid rgb(187, 0, 0);
+      background-color: rgb(188, 247, 247);
+
+      padding: 20px;
+      margin: 0 auto;
+      width: 25%;
+      text-align: center;
+      border-radius: 2%;
+    }
+
+    .form h1 {
+      color: crimson;
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .form p {
+      color: rgb(15, 15, 15);
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: 200;
+    }
+
+    .form input {
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: bold;
+      margin-bottom: 10px;
+      padding: 8px;
+      width: 100%;
+      border: 3px solid rgb(83, 206, 42);
+      border-radius: 4px;
+      text-align: center;
+    }
+
+
+    .form label {
+      font-size: 110%;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      color: rgb(129, 3, 56);
+
+    }
+
+
+    .form button {
+      background-color: rgb(26, 140, 247);
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      display: block;
+      margin: 0 auto;
+      margin-top: 8%;
+    }
+
+    .form select {
+      font-family: cursive;
+      color: rgb(248, 61, 186);
+    }
+
+    .error {
+      position: relative;
+      padding: 10px;
+      color: rgb(160, 4, 4);
+      font-size: 16px;
+      font-weight: lighter;
+      text-align: center;
+
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="message" th:if="${param.success}">
+    <p>Successfully Registered!</p>
+  </div>
+  <div class="form">
+    <form th:action="@{/reg}" th:object="${newUser}">
+      <h1>Welcome to softsuave</h1>
+      <p>Please register with Your Details</p>
+      <label for="UserName">Username:</label>
+      <input type="text" name="userName" th:field="*{userName}" class="form-control" required>
+      <div th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}" class="error"></div>
+      <br>
+      <label for="email">Email:</label>
+      <input type="email" name="email" th:field="*{email}" class="form-control" required>
+      <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error"></div>
+      <br>
+      <label for="phone">Phone Number:</label>
+      <input th:field="*{phoneNumber}" class="form-control" required>
+      <div th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}" class="error"></div>
+      <br>
+      <label for="password">Password:</label>
+      <input type="password" name="password" th:field="*{password}" class="form-control" required>
+      <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error"></div>
+      <br>
+
+      <label for="usertype">Choose Your Role:</label>
+      <select class="option" th:field="*{role}">
+        <option th:value="ADMIN">Admin</option>
+        <option th:value="USER">User</option>
+      </select>
+      <br>
+      <button type="submit">Submit</button>
+      <p>Already have an Account?</p>
+      <a th:href="@{/signin}">sign in</a>
+    </form>
+  </div>
+</body>
+
+</html>

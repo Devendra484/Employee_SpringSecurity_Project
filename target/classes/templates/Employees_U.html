@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Employee List</title>
+  <style>
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 50px;
+    }
+
+    th,
+    td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: lightgray;
+    }
+
+    .action-buttons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 50px;
+    }
+
+    .action-button {
+      background-color: rgb(0, 64, 0);
+      /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-right: 20px;
+    }
+
+    .logout-button {
+      background-color: #f44336;
+      /* Red */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-left: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Softsuave Employees</h1>
+  <div class="action-buttons">
+    <a th:href="@{/user}" class="action-button">Back</a>
+
+    <form action="/logout" method="post">
+      <input type="submit" value="Logout" class="logout-button">
+    </form>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Designation</th>
+        <th>Salary</th>
+        <th>Phone Number</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="employee : ${employees}">
+        <td th:text="${employee.id}"></td>
+        <td th:text="${employee.name}"></td>
+        <td th:text="${employee.designation}"></td>
+        <td th:text="${employee.salary}"></td>
+        <td th:text="${employee.phoneNumber}"></td>
+
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+
+</html>

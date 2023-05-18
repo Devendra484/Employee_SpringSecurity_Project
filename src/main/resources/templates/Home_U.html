@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Welcome to Softsuave</title>
+  <style>
+    body {
+      background-image: url('https://cdn.pixabay.com/photo/2020/03/11/12/04/illustration-4921980__340.jpg');
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h1 {
+      text-align: center;
+      color: rgb(255, 0, 0);
+      font-size: 36px;
+      margin-bottom: 50px;
+    }
+
+    div.button {
+      display: inline-block;
+      margin: 20px auto;
+      padding: 5px 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      background-color: rgb(0, 64, 128);
+      color: white;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+    }
+  </style>
+   
+</head>
+
+<body>
+  <h1 th:text="'Welcome to Softsuave'">Welcome to Softsuave</h1>
+  <a th:href="@{/employees_List}" style="text-decoration:none;">
+    <div class="button">View Employees</div>
+  </a>
+  <a th:href="@{/logout}" style="text-decoration:none;">
+    <div class="button">Logout</div>
+  </a>
+</body>
+
+</html>

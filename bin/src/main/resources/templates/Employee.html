@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaft.org">
+
+<head>
+
+	<meta charset="ISO-8859-1">
+	<title>Employees Data</title>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<h1>Welcome to SoftSuave</h1>
+		</div>
+	</div>
+	<div class="buton">
+		<button onClick={ToggleTable()}>Employees</button>
+	</div>
+	<div>
+		<table class="table table-striped ">
+			<thead>
+				<tr>
+					<th>ENo</th>
+					<th>EName</th>
+					<th>Designation</th>
+					<th>Salary</th>
+					<th>PhoneNumber</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="employee:${Employees}">
+					<td th:text="${employee.id}"></td>
+					<td th:text="${employee.name}"></td>
+					<td th:text="${employee.designation}"></td>
+					<td th:text="${employee.salary}"></td>
+					<td th:text="${employee.phoneNumber}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script type="text/javascript">
+		function ToggleTable() {
+			document.querySelector("button")
+
+		}
+	</script>
+	</div>
+</body>
+
+</html>

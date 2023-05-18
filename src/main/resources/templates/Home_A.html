@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Welcome to Softsuave</title>
+  <style>
+    body {
+      background-image: url('https://cdn.pixabay.com/photo/2020/03/11/12/04/illustration-4921980__340.jpg');
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h1 {
+      text-align: center;
+      color: rgb(255, 0, 0);
+      font-size: 36px;
+      margin-bottom: 50px;
+    }
+
+    .action-buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .button {
+      background-color: #4CAF50;
+      /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-right: 20px;
+    }
+
+    .logout-button {
+      background-color: #f44336;
+      /* Red */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-left: 20px;
+    }
+  </style>
+   
+</head>
+
+<body>
+
+  <h1 th:text="'Welcome to Softsuave'">Welcome to Softsuave</h1>
+  <div class="action-buttons">
+    <a th:href="@{/employees}" style="text-decoration:none;">
+      <div id="btn1" class="button">View Employees</div>
+    </a>
+    <form action="/logout" method="post">
+      <input  type="submit" value="Logout" class="logout-button">
+    </form>
+  </div>
+</body>
+
+</html>
