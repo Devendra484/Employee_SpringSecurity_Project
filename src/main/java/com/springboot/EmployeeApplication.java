@@ -11,6 +11,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 public class EmployeeApplication {
 
 	public static void main(String[] args) {
+		System.out.println("App is working");
 		SpringApplication.run(EmployeeApplication.class, args);
 	}
 
